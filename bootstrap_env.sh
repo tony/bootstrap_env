@@ -1,6 +1,18 @@
 #!/bin/sh
-# ENV variables accepted:
-# PYBOOTSTRAP_DIR: directory of your configs
+# **bootstrap_env.sh**  is a shell script that can be ran or sourced to create
+# an environment for your python project.
+#
+# Bug Reports: https://github.com/tony/bootstrap_env/issues
+#
+# Copyright: (c) 2015 Tony Narlock <tony@git-pull.com> 
+#
+# License: MIT 
+
+
+# Environment variables
+# ---------------------
+# PYBOOTSTRAP_DIR: Directory of your configs
+
 if [ "$ZSH_EVAL_CONTEXT" = "toplevel" ] \
     || ([ -n $BASH_VERSION ] && [ $0 != "$BASH_SOURCE" ] ) \
     ; then
@@ -254,3 +266,5 @@ VIRTUALENV_PROJECT_BIN_PATH="$VIRTUALENV_PROJECT_PATH/bin"
 if [ "$install_command" != "off" ]; then
     eval "$VIRTUALENV_PROJECT_BIN_PATH/$install_command"
 fi
+
+# vim: softtabstop=4 shiftwidth=4 expandtab fenc=utf-8 spell spelllang=en cc=120
