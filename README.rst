@@ -31,7 +31,7 @@ Installation
 
 Assuming you have ``$HOME/bin`` in your ``PATH`` (`need help w/ PATH?`_):
 
-.. code-block:: console
+.. code-block:: sh
    
     $ cd ~/bin
     
