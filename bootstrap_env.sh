@@ -12,7 +12,7 @@
 # Environment variables
 # ---------------------
 # PYBOOTSTRAP_DIR: Directory of your configs
-if [[ -z $ZSH_EVAL_CONTEXT || $ZSH_EVAL_CONTEXT[-1] != file* ]] \
+if ([ -z $ZSH_EVAL_CONTEXT ] || [ $ZSH_EVAL_CONTEXT[-1] != "file*" ]) \
     || ([ -n "$BASH_VERSION" ] && [ $0 != "$BASH_SOURCE" ] ); then
     sourced=on
 else
