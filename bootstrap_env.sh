@@ -14,7 +14,7 @@
 # PYBOOTSTRAP_DIR: Directory of your configs
 
 if [ "$ZSH_EVAL_CONTEXT" = "toplevel" ] \
-    || ([ -n $BASH_VERSION ] && [ $0 != "$BASH_SOURCE" ] ) \
+    || ([ -n "$BASH_VERSION" ] && [ $0 != "$BASH_SOURCE" ] ) \
     ; then
     sourced=on
 else
@@ -238,7 +238,6 @@ fi
 
 if [ -z "$project_name" ]; then
     echo "Please enter at least a project_name."
-    _print_message
     _quit 1
 fi
 
