@@ -12,14 +12,16 @@
 # Environment variables
 # ---------------------
 # PYBOOTSTRAP_DIR: Directory of your configs
-
-if [ "$ZSH_EVAL_CONTEXT" = "toplevel" ] \
+if [[ -z $ZSH_EVAL_CONTEXT || $ZSH_EVAL_CONTEXT[-1] != file* ]] \
     || ([ -n "$BASH_VERSION" ] && [ $0 != "$BASH_SOURCE" ] ) \
     ; then
     sourced=on
 else
     sourced=off
 fi
+
+echo "$sourced"
+echo "$ZSH_EVAL_CONTEXT"
 
 if [ -n "$ZSH_VERSION" ]; then
     setopt shwordsplit
