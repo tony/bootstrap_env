@@ -159,7 +159,8 @@ _virtualenvwrapper_activate() {
 }
 
 _pyenv_virtualenv_project() {
-   if ! $(pyenv virtualenvs $project_name | grep -q "  $project_name "); then
+
+   if ! $(pyenv virtualenvs $project_name | grep -q "  $project_name ") && ! $(pyenv virtualenvs $project_name | grep -q "* $project_name "); then
        pyenv virtualenv "$project_name"
    fi
    _pyenv_virtualenv_activate
@@ -167,8 +168,12 @@ _pyenv_virtualenv_project() {
 
 _pyenv_virtualenv_activate() {
     if [ "$sourced" = "on" ]; then
-        if $(pyenv virtualenvs $project_name | grep -q "  $project_name "); then
+        if $(pyenv virtualenvs $project_name | grep -q "* $project_name "); then
+            echo "virtualenv $project_name is already active"
+            _quit 1
+        elif $(pyenv virtualenvs $project_name | grep -q "  $project_name "); then
             pyenv activate "$project_name"
+
         else
             echo "virtualenv $project_name does not exist"
             _quit 1
