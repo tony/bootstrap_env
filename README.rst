@@ -29,11 +29,21 @@ Features
 Installation
 ------------
 
-Assuming you have ``$HOME/bin`` in your ``PATH`` (`need help w/ PATH?`_):
+Assuming you have ``$HOME/.local/bin`` in your ``PATH`` (`need help w/ PATH?`_):
+
+One-liner
+~~~~~~~~~
+
+.. code-block:: sh
+
+    [ -d ~/.bootstrap_env ] || git clone https://github.com/tony/bootstrap_env.git ~/.bootstrap_env && [ -d ~/.local/bin ] || mkdir -p ~/.local/bin && ln -sf ~/.bootstrap_env/bootstrap_env.sh ~/.local/bin/bootstrap_env && rehash
+
+Manual
+~~~~~~
 
 .. code-block:: sh
    
-    $ cd ~/bin
+    $ cd ~/.local/bin
     
     # download w/ curl
     $ curl -o bootstrap_env.sh https://raw.githubusercontent.com/tony/bootstrap_env/master/bootstrap_env.sh
